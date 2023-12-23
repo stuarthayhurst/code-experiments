@@ -1,1 +1,3 @@
 __pycache__
+debian-kernel/build
+debian-kernel/patches
