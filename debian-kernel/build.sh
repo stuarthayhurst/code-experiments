@@ -1,10 +1,13 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-#Rebuild the upstream Debian Sid / Experimental kernel, applying any patches in 'patches/'
+if [[ -d "build" ]]; then
+  echo "build/ already exists, exiting"
+  exit 1
+fi
 
 if [[ "$1" == "experimental" ]]; then
   echo "Starting experimental build, press enter to confirm"
-  read
+  read -r
 fi
 
 sudo debootstrap unstable build

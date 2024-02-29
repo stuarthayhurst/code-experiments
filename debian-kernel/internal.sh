@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 echo "deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
 echo "deb-src http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
@@ -12,6 +12,7 @@ echo "y" | apt-get build-dep linux -t unstable
 
 if [[ "$1" == "experimental" ]]; then
   apt-get source linux -t experimental
+  apt install python3-dacite
 else
   apt-get source linux -t unstable
 fi
