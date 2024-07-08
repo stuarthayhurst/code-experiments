@@ -98,7 +98,7 @@ int main() {
     buffer[length + 2] = 's';
     buffer[length + 3] = '\0';
 
-    inputs[1] = buffer;
+    inputs[1] = raw;
     uint64_t cache = generateCacheString(inputs, 2);
     for (int i = 0; i < sizeof(values) / sizeof(uint64_t); i++) {
       if (cache == values[i]) {
