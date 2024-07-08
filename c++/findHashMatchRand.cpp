@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <cstdlib>
 #include <string>
 #include <iostream>
 #include <cstring>
@@ -29,29 +30,10 @@ static uint64_t generateCacheString(std::string* filePaths, unsigned int fileCou
   return *(uint64_t*)output;
 }
 
-static bool resolve(char* buffer, int* length) {
-  for (int i = 0; i < *length; i++) {
-    if (buffer[i] == 91) {
-      buffer[i] = 97;
-      return true;
-    } else if (buffer[i] == 123) {
-      if (i + 1 == *length) {
-        (*length)++;
-        std::cout << "Trying length " << *length << std::endl;
-        buffer[i + 1] = 65;
-      } else {
-        buffer[i + 1]++;
-      }
-      buffer[i] = 65;
-      return true;
-    }
-  }
-  return false;
-}
-
 /*
  - Find another useable file path that has a cache string collision with another group
  - Needed to properly test cache collision resolution in ammonite-engine
+ - Uses a random length and random characters
 */
 
 int main() {
@@ -80,19 +62,20 @@ int main() {
 
   char raw[4096];
   char* buffer = raw + 13;
-
-  std::fill_n(raw, 4096, 65);
   std::strcpy(raw, "shaders/test/");
-  buffer[0] = 65;
 
-  int length = 1;
+  std::srand((unsigned)time(nullptr));
   bool found = false;
   while (!found) {
-    if (length == (sizeof(raw) - 13 - 4)) {
-      std::cout << "ERROR: Max length reached" << std::endl;
-      return 1;
+    int length = 6 + std::rand() % 123;
+    for (int i = 0; i < length; i++) {
+      buffer[i] = std::rand() % 52;
+      if (buffer[i] < 26) {
+        buffer[i] += 65;
+      } else {
+        buffer[i] += 71;
+      }
     }
-    while (resolve(buffer, &length));
 
     buffer[length] = '.';
     buffer[length + 1] = 'v';
