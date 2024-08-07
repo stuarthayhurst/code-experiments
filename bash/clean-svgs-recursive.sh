@@ -18,7 +18,7 @@ for i in "${dirList[@]}"; do
   for svg in "${svgs[@]}"; do
     if [[ ! -L "$svg" ]]; then
       echo "$svg"
-      inkscape "--vacuum-defs" "--export-filename=$svg" "$svg"
+      SELF_CALL=1 inkscape "--vacuum-defs" "--export-filename=$svg" "$svg"
     fi
   done
 done
