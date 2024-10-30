@@ -34,14 +34,9 @@ int main(int argc, char** argv) {
   }
 
   /* Generate ruleset from number */
-  ruleSet[7] = !!(ruleNum & 128);
-  ruleSet[6] = !!(ruleNum & 64);
-  ruleSet[5] = !!(ruleNum & 32);
-  ruleSet[4] = !!(ruleNum & 16);
-  ruleSet[3] = !!(ruleNum & 8);
-  ruleSet[2] = !!(ruleNum & 4);
-  ruleSet[1] = !!(ruleNum & 2);
-  ruleSet[0] = !!(ruleNum & 1);
+  for (gen = 0; gen < 9; gen++) {
+    ruleSet[gen] = !!(ruleNum & (1 << gen));
+  }
 
   /* Allocate memory for generations */
   currentGen = (char*)calloc(numCells, sizeof(char));
