@@ -5,9 +5,8 @@ BACKUPPATH="/backups/Minecraft"
 #These paths must be within the server's directory, and are relative to it
 BUILDPATH="build"
 JARPATH="jars"
-ENVPATH="minecraft-env"
 
 MINRAM="2G"
 MAXRAM="16G"
 
-VERSION="1.21.1"
+VERSION="1.21.4"

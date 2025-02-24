@@ -14,6 +14,4 @@ cd ../
 tar cf "${FILE}.tar.bz2" --use-compress-prog=pbzip2 \
   --exclude "./$DIR/$BUILDPATH/*" \
   --exclude "./$DIR/$BUILDPATH" \
-  --exclude "./$DIR/$ENVPATH/*" \
-  --exclude "./$DIR/$ENVPATH" \
   "./$DIR/"
