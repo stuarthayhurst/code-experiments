@@ -9,7 +9,7 @@ echo "deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmw
 echo "deb-src http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
 echo "y" | apt update
-echo "y" | apt install git bash-completion
+echo "y" | apt install git bash-completion wget
 echo "y" | apt build-dep linux
 
 git clone "$URL"

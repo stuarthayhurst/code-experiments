@@ -6,7 +6,7 @@ echo "deb http://deb.debian.org/debian/ experimental main contrib non-free non-f
 echo "deb-src http://deb.debian.org/debian/ experimental main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
 apt update
-echo "y" | apt install bash-completion build-essential devscripts -t unstable
+echo "y" | apt install bash-completion build-essential devscripts wget -t unstable
 
 echo "y" | apt-get build-dep linux -t unstable
 
