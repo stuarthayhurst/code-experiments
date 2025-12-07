@@ -4,9 +4,9 @@ source scripts/config
 
 if [[ -d "$BACKUPPATH" ]]; then
   mkdir -p "$BACKUPPATH/$VERSION"
-  FILE="$BACKUPPATH/$VERSION/Minecraft-Server-$(date +%Y%m%d)"
+  FILE="$BACKUPPATH/$VERSION/$BACKUPNAME-$(date +%Y%m%d)"
 else
-  FILE="./Minecraft-Server-$VERSION-$(date +%Y%m%d)"
+  FILE="./$BACKUPNAME-$VERSION-$(date +%Y%m%d)"
 fi
 
 DIR="$(basename "$(pwd)")"

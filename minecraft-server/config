@@ -1,6 +1,7 @@
 #!/bin/bash
 #Don't use trailing slashes for path configs
 BACKUPPATH="/backups/Minecraft"
+BACKUPNAME="Minecraft-Server"
 
 #These paths must be within the server's directory, and are relative to it
 BUILDPATH="build"
