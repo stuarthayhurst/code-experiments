@@ -2,7 +2,9 @@
 
 source scripts/config
 
-if [[ "$1" == "" ]]; then
+if [[ "$1" == "default" ]]; then
+  JAR="./$JARPATH/spigot-$VERSION.jar"
+elif [[ "$1" == "" ]]; then
   echo "Select a .jar to run:"
   ls "./$JARPATH/"*".jar"
   read -r JAR
