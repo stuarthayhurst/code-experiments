@@ -30,6 +30,21 @@ fi
 echo "Saving files in '$outputPath'"
 mkdir -p "$outputPath"
 cd "$outputPath" || exit 1
+
+if [[ -x "$(command -v wget)" ]]; then
+  downloadCommand="wget"
+elif [[ -x "$(command -v curl)" ]]; then
+  downloadCommand="curl"
+else
+  echo "Couldn't find a program to download with"
+  exit 1
+fi
+
 for url in "${imageUrls[@]}"; do
-  wget "$url"
+  if [[ "$downloadCommand" == "curl" ]]; then
+    filename="${url##*/}"
+    $downloadCommand -L -o "$filename" "$url"
+  else
+    $downloadCommand "$url"
+  fi
 done
