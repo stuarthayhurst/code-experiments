@@ -3,6 +3,8 @@
 URL="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
 if [[ "$1" == "stable" ]]; then
   URL="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
+elif [[ "$1" != "" ]]; then
+  URL="$1"
 fi
 
 echo "deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
