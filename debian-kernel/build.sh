@@ -14,4 +14,7 @@ sudo debootstrap unstable build
 sudo mkdir build/patches
 sudo cp patches/* build/patches/
 sudo cp internal.sh build/
+
+sudo mount --bind /proc build/proc
 sudo chroot build ./internal.sh "$1"
+sudo umount build/proc
