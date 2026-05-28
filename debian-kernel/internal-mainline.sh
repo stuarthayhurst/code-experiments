@@ -15,4 +15,3 @@ echo "y" | apt install git bash-completion wget
 echo "y" | apt build-dep linux
 
 git clone "$URL"
-echo -e "\nSetup complete, swap into chroot, then setup '.config' and build with 'make bindeb-pkg -j$(nproc)'"
