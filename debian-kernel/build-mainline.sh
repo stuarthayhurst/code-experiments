@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+#shellcheck disable=SC2181
 
 #Set up a build environment and source code for a mainline kernel
 #Pass "stable" to use the stable kernel source tree instead of Torvalds'

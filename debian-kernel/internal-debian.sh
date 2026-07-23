@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+#shellcheck disable=SC2129
 
 echo "deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
 echo "deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
