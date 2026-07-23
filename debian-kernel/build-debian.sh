@@ -23,7 +23,7 @@ if [[ "$1" == "experimental" ]]; then
 fi
 
 #Install the base system
-debootstrap unstable build-debian
+debootstrap --include=ca-certificates unstable build-debian
 if [[ "$?" != "0" ]]; then
   echo "Failed to install the base system, exiting" >&2
   exit 1

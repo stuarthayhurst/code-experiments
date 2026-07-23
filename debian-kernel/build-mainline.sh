@@ -17,7 +17,7 @@ if [[ -d "build-mainline" ]]; then
 fi
 
 #Install the base system
-debootstrap unstable build-mainline
+debootstrap --include=ca-certificates unstable build-mainline
 if [[ "$?" != "0" ]]; then
   echo "Failed to install the base system, exiting" >&2
   exit 1

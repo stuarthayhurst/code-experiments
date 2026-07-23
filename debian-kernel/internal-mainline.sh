@@ -7,8 +7,8 @@ elif [[ "$1" != "" ]]; then
   URL="$1"
 fi
 
-echo "deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+echo "deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
+echo "deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
 echo "y" | apt update
 echo "y" | apt install git bash-completion wget

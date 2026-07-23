@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
-echo "deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian/ experimental main contrib non-free non-free-firmware" >> /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian/ experimental main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+echo "deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" > /etc/apt/sources.list
+echo "deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+echo "deb https://deb.debian.org/debian/ experimental main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+echo "deb-src https://deb.debian.org/debian/ experimental main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 
 apt update
 echo "y" | apt install bash-completion build-essential devscripts wget -t unstable
