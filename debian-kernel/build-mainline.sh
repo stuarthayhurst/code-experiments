@@ -6,6 +6,11 @@ if [[ -d "build-mainline" ]]; then
 fi
 
 sudo debootstrap unstable build-mainline
+if [[ "$?" != "0" ]]; then
+  echo "Failed to install the base system, exiting"
+  exit 1
+fi
+
 sudo cp internal-mainline.sh build-mainline/
 
 sudo mount --bind /proc build-mainline/proc
