@@ -5,7 +5,7 @@ if [[ -d "build/proc" ]]; then
 fi
 
 if [[ -d "build-mainline/proc" ]]; then
-  sudo umount -q build-mainline
+  sudo umount -q build-mainline/proc
 fi
 
 sudo rm -rvf build/ build-mainline/
