@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 if [[ -d "build-debian" ]]; then
-  echo "build-debian/ already exists, exiting"
+  echo "build-debian/ already exists, exiting" >&2
   exit 1
 fi
 

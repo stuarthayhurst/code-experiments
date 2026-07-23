@@ -1,13 +1,13 @@
 #!/usr/bin/bash
 
 if [[ -d "build-mainline" ]]; then
-  echo "build-mainline/ already exists, exiting"
+  echo "build-mainline/ already exists, exiting" >&2
   exit 1
 fi
 
 sudo debootstrap unstable build-mainline
 if [[ "$?" != "0" ]]; then
-  echo "Failed to install the base system, exiting"
+  echo "Failed to install the base system, exiting" >&2
   exit 1
 fi
 
