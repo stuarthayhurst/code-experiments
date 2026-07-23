@@ -18,8 +18,8 @@ fi
 
 sudo mkdir build-debian/patches
 sudo cp patches/* build-debian/patches/
-sudo cp internal.sh build-debian/
+sudo cp internal-debian.sh build-debian/
 
 sudo mount --bind /proc build-debian/proc
-sudo chroot build-debian ./internal.sh "$1"
+sudo chroot build-debian ./internal-debian.sh "$1"
 sudo umount build-debian/proc
