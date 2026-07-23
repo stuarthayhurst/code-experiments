@@ -11,6 +11,11 @@ if [[ "$1" == "experimental" ]]; then
 fi
 
 sudo debootstrap unstable build-debian
+if [[ "$?" != "0" ]]; then
+  echo "Failed to install the base system, exiting" >&2
+  exit 1
+fi
+
 sudo mkdir build-debian/patches
 sudo cp patches/* build-debian/patches/
 sudo cp internal.sh build-debian/
