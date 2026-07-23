@@ -4,11 +4,16 @@ clean_directory() {
   echo "Cleaning '$1'..."
 
   if [[ -d "$1/proc" ]]; then
-    sudo umount -q "$1/proc"
+    umount -q "$1/proc"
   fi
 
-  sudo rm -rvf "$1"
+  rm -rvf "$1"
 }
+
+if [[ "$(id -u)" != "0" ]]; then
+  echo "Script must be run as root, exiting" >&2
+  exit 1
+fi
 
 if [[ "$1" != "" ]]; then
   clean_directory "$1"
