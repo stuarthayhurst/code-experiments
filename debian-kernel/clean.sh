@@ -13,6 +13,6 @@ clean_directory() {
 if [[ "$1" != "" ]]; then
   clean_directory "$1"
 else
-  clean_directory "build"
+  clean_directory "build-debian"
   clean_directory "build-mainline"
 fi
