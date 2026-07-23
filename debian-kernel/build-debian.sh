@@ -37,4 +37,8 @@ cp internal-debian.sh build-debian/
 #Bind mount /proc and run the internal build script
 mount --bind /proc build-debian/proc
 chroot build-debian ./internal-debian.sh "$1"
+if [[ "$?" != "0" ]]; then
+  echo "Failed to build the kernel, exiting" >&2
+  exit 1
+fi
 umount build-debian/proc

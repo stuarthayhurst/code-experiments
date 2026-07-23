@@ -29,6 +29,10 @@ cp internal-mainline.sh build-mainline/
 #Bind mount /proc and run the set up script
 mount --bind /proc build-mainline/proc
 chroot build-mainline ./internal-mainline.sh "$1"
+if [[ "$?" != "0" ]]; then
+  echo "Failed to set up the kernel build, exiting" >&2
+  exit 1
+fi
 
 #Provide build instructions
 echo -e "\nSetup complete, swap into chroot, then setup '.config' and build with 'make bindeb-pkg -j$(nproc)'"
