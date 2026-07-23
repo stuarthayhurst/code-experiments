@@ -1,11 +1,18 @@
 #!/usr/bin/bash
 
-if [[ -d "build/proc" ]]; then
-  sudo umount -q build/proc
-fi
+clean_directory() {
+  echo "Cleaning '$1'..."
 
-if [[ -d "build-mainline/proc" ]]; then
-  sudo umount -q build-mainline/proc
-fi
+  if [[ -d "$1/proc" ]]; then
+    sudo umount -q "$1/proc"
+  fi
 
-sudo rm -rvf build/ build-mainline/
+  sudo rm -rvf "$1"
+}
+
+if [[ "$1" != "" ]]; then
+  clean_directory "$1"
+else
+  clean_directory "build"
+  clean_directory "build-mainline"
+fi
