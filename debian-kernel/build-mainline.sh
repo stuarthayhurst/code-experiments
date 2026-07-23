@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+#Set up a build environment and source code for a mainline kernel
+#Pass "stable" to use the stable kernel source tree instead of Torvalds'
+#Requires debootstrap and an internet connection
+
 #Check for root
 if [[ "$(id -u)" != "0" ]]; then
   echo "Script must be run as root, exiting" >&2

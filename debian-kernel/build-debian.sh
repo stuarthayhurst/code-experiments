@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+#Set up a build environment and source code for a Debian kernel
+#Pass "experimental" to use the kernel version from experimental
+#Any patches in "patches/" will be applied before the build starts
+#Requires debootstrap and an internet connection
+
 #Check for root
 if [[ "$(id -u)" != "0" ]]; then
   echo "Script must be run as root, exiting" >&2
