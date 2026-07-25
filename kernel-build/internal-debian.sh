@@ -18,6 +18,6 @@ else
   apt-get source linux -t unstable
 fi
 
-cd "linux-*" || exit 1
+cd "linux-"* || exit 1
 
 find ../patches/* -maxdepth 1 -print0 |xargs -0 bash debian/bin/test-patches -f amd64
